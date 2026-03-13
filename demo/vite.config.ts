@@ -12,5 +12,6 @@ export default defineConfig({
   },
   server: {
     fs: { allow: ['..'] },
+    watch: { usePolling: true },
   },
 })

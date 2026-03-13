@@ -66,7 +66,7 @@ export function toSource(text: string): string[] {
 export function codeCell(
   source: string,
   metadata: Record<string, unknown> = {},
-  used: Set<string> = new Set()
+  used: Set<string> = new Set(),
 ): CodeCell {
   return {
     cell_type: "code",
@@ -81,7 +81,7 @@ export function codeCell(
 export function markdownCell(
   source: string,
   metadata: Record<string, unknown> = {},
-  used: Set<string> = new Set()
+  used: Set<string> = new Set(),
 ): MarkdownCell {
   return {
     cell_type: "markdown",
@@ -94,7 +94,7 @@ export function markdownCell(
 export function rawCell(
   source: string,
   metadata: Record<string, unknown> = {},
-  used: Set<string> = new Set()
+  used: Set<string> = new Set(),
 ): RawCell {
   return {
     cell_type: "raw",
@@ -108,9 +108,6 @@ export function rawCell(
 // Notebook factory
 // ---------------------------------------------------------------------------
 
-export function makeNotebook(
-  cells: Cell[],
-  metadata: Record<string, unknown> = {}
-): Notebook {
+export function makeNotebook(cells: Cell[], metadata: Record<string, unknown> = {}): Notebook {
   return { nbformat: 4, nbformat_minor: 5, metadata, cells };
 }

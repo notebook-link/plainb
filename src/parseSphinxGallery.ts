@@ -1,10 +1,4 @@
-import {
-  codeCell,
-  markdownCell,
-  makeNotebook,
-  type Cell,
-  type Notebook,
-} from "./notebook.js";
+import { codeCell, markdownCell, makeNotebook, type Cell, type Notebook } from "./notebook.js";
 
 // ---------------------------------------------------------------------------
 // RST helpers
@@ -91,9 +85,7 @@ function stripLeadingBlank(lines: string[]): string[] {
 }
 
 /** Extract the module-level triple-quoted docstring. */
-function extractDocstring(
-  lines: string[]
-): { content: string; end: number } | null {
+function extractDocstring(lines: string[]): { content: string; end: number } | null {
   if (!lines[0]?.startsWith('"""')) return null;
 
   const afterOpen = lines[0].slice(3);

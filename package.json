@@ -4,20 +4,32 @@
   "type": "module",
   "description": "Convert plain text (.py percent format, .md classic/MyST) to Jupyter nbformat 4 JSON",
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
   "main": "./dist/index.js",
-  "files": ["dist"],
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
-    "build": "node build.mjs",
+    "build": "tsc",
     "test": "node --test --import tsx test/*.test.ts",
+    "lint": "eslint src",
+    "format": "prettier --write src",
     "demo": "npm run --prefix demo dev",
     "demo:build": "npm run --prefix demo build"
   },
   "devDependencies": {
-    "esbuild": "^0.25.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.1",
     "tsx": "^4.19.0",
-    "typescript": "^5.8.0"
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.57.0"
   }
 }

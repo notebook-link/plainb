@@ -103,8 +103,7 @@ export function parsePy(text: string): Notebook {
 
   for (let d = 0; d < delimiters.length; d++) {
     const start = delimiters[d].idx + 1;
-    const end =
-      d + 1 < delimiters.length ? delimiters[d + 1].idx : lines.length;
+    const end = d + 1 < delimiters.length ? delimiters[d + 1].idx : lines.length;
 
     const { cellType, metadata } = parseCellHeader(delimiters[d].rest);
     const rawLines = stripTrailingBlank(lines.slice(start, end));
@@ -115,9 +114,7 @@ export function parsePy(text: string): Notebook {
     } else {
       // markdown or raw
       const isTripleQuote = rawLines[0]?.trim() === '"""';
-      const source = isTripleQuote
-        ? stripTripleQuotes(rawLines)
-        : uncomment(rawLines);
+      const source = isTripleQuote ? stripTripleQuotes(rawLines) : uncomment(rawLines);
       if (cellType === "markdown") {
         cells.push(markdownCell(source, metadata, used));
       } else {
