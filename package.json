@@ -14,8 +14,14 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trungleduc/plainb"
+  },
+  "homepage": "https://github.com/trungleduc/plainb",
   "license": "MIT",
   "scripts": {
+    "prepublishOnly": "npm run build && npm test",
     "build": "tsc",
     "test": "node --test --import tsx test/*.test.ts",
     "lint": "eslint src",
