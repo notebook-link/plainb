@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/trungleduc/plainb/compare/v1.0.0...v1.1.0) (2026-03-15)
+
+
+### Features
+
+* update export ([ff7ac04](https://github.com/trungleduc/plainb/commit/ff7ac0479d2b2eca911c0a8815940b8f97834bfd))
+
 # 1.0.0 (2026-03-13)
 
 
