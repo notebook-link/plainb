@@ -20,7 +20,7 @@ npm install plainb
 ## Usage
 
 ```ts
-import { parse, parsePy, parseMd, parseSphinxGallery } from "plainb";
+import { parse, parsePy, parseMd, parseClassicMd, parseMystMd, parseSphinxGallery } from "plainb";
 
 // Auto-dispatch by format
 const notebook = parse(source, "py"); // or 'md' | 'sphinx-gallery'
@@ -28,7 +28,9 @@ const notebook = parse(source, "py"); // or 'md' | 'sphinx-gallery'
 // Or call parsers directly
 const nb1 = parsePy(source); // .py percent format
 const nb2 = parseMd(source); // .md classic or MyST (auto-detected)
-const nb3 = parseSphinxGallery(source); // Sphinx Gallery
+const nb3 = parseClassicMd(source); // .md classic (explicit)
+const nb4 = parseMystMd(source); // .md MyST (explicit)
+const nb5 = parseSphinxGallery(source); // Sphinx Gallery
 ```
 
 The returned object is a valid `nbformat.INotebookContent` (nbformat 4.5) — ready to save as `.ipynb` or pass to any Jupyter rendering library.
@@ -119,6 +121,8 @@ parse(text: string, format: 'py' | 'md' | 'sphinx-gallery'): Notebook
 
 parsePy(text: string): Notebook
 parseMd(text: string): Notebook          // auto-detects classic vs MyST
+parseClassicMd(text: string): Notebook  // classic Markdown (explicit)
+parseMystMd(text: string): Notebook     // MyST Notebook (explicit)
 parseSphinxGallery(text: string): Notebook
 
 // Types (re-exported from the package)

@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import Editor from '@monaco-editor/react'
-import { parsePy, parseMd, parseSphinxGallery } from 'plainb'
+import { parsePy, parseClassicMd, parseMystMd, parseSphinxGallery } from 'plainb'
 
 // ---------------------------------------------------------------------------
 // Sample inputs
@@ -190,9 +190,10 @@ export default function App() {
 
   const { json, error } = useMemo(() => {
     try {
-      const nb = format === 'py' ? parsePy(input)
-               : format === 'sg' ? parseSphinxGallery(input)
-               : parseMd(input)
+      const nb = format === 'py'   ? parsePy(input)
+               : format === 'sg'   ? parseSphinxGallery(input)
+               : format === 'myst' ? parseMystMd(input)
+               :                     parseClassicMd(input)
       return { json: JSON.stringify(nb, null, 2), error: null }
     } catch (e) {
       return { json: '', error: String(e) }

@@ -1,6 +1,6 @@
-import { parseClassicMd } from "./parseClassicMd.js";
-import { parseMystMd } from "./parseMystMd.js";
-import type { Notebook } from "./notebook.js";
+import { parseClassicMd } from "./parseClassicMd";
+import { parseMystMd } from "./parseMystMd";
+import type { Notebook } from "./notebook";
 
 /** Detect MyST notebook format by scanning for {code-cell}/{raw-cell} directives or +++ breaks. */
 function isMyST(text: string): boolean {

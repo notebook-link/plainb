@@ -5,7 +5,7 @@ import {
   makeNotebook,
   type Cell,
   type Notebook,
-} from "./notebook.js";
+} from "./notebook";
 
 // ---------------------------------------------------------------------------
 // MyST notebook format parser

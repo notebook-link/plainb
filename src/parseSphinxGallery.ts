@@ -1,4 +1,4 @@
-import { codeCell, markdownCell, makeNotebook, type Cell, type Notebook } from "./notebook.js";
+import { codeCell, markdownCell, makeNotebook, type Cell, type Notebook } from "./notebook";
 
 // ---------------------------------------------------------------------------
 // RST helpers
